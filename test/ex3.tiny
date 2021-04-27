@@ -1,0 +1,4 @@
+x = ( 4 + input ) ;
+y = input ;
+print ( ( 7 ) + ( y + y ) ) ;
+print ( ( x + ( y + 3 ) ) + 97 ) ;

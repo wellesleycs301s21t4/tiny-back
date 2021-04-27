@@ -1,0 +1,28 @@
+# Backup and temporary files
+*~
+*\#*
+.\#*
+.DS_Store
+vgcore.*
+.nfs*
+.vscode
+
+# IntelliJ metadata
+/.idea/
+
+# Builds etc.
+/out/
+/.bsp/
+
+# Generated files
+/**/src/**/Lexer.java
+/**/src/**/*.cup.dump.txt
+/**/src/**/parser.java
+/**/src/**/sym.java
+/bin/tinyc
+/bin/tiny
+*.bin
+*.o
+*.dSYM
+
+/test/**/*.tokens.json

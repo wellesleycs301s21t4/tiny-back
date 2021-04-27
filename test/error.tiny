@@ -1,0 +1,4 @@
+y = 7 ;
+print y ;
+print x ;
+x = ( input + y ) ;
