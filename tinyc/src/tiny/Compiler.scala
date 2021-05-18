@@ -36,7 +36,7 @@ object Compiler {
       val ast = frontend(source)
 
       // Back End steps: from AST to executable.
-      backend(ast)
+      backend(ast, args)
 
       println("================")
       println("ACCEPTED")
@@ -68,7 +68,7 @@ object Compiler {
     ast
   }
 
-  def backend(ast: Program): Unit = {
+  def backend(ast: Program, args: Array[String]): Unit = {
     // 2. IR
     // Convert the AST to a Three-Address Code Intermediate Representation.
     println("== IR ===========")
