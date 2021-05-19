@@ -5,16 +5,16 @@ import scala.collection.mutable.Map
 import scala.sys.process._
 
 /**
- * Wrapper for the assembler and linker.
- * This takes our generated assembly code file, links it with a library
- * for runtime I/O support, and produces a binary machine code file
- * (an executable).
- */
+	* Wrapper for the assembler and linker.
+	* This takes our generated assembly code file, links it with a library
+	* for runtime I/O support, and produces a binary machine code file
+	* (an executable).
+	*/
 object Link {
-  def apply(asm: String, asmpath: String, binfile: String) = {
+	def apply(asm: String, asmpath: String, binfile: String) = {
 		val home = System.getenv("TINY_HOME")
-		val runtimesrc = home + "/src/main/c/runtime/runtime.c"
-		val runtimeobj = home + "/target/runtime.o"
+		val runtimesrc = home + "/tinyc/runtime/runtime.c"
+		val runtimeobj = home + "/tinyc/runtime/runtime.o"
 		val runtimeResult = Seq("gcc", "-g", "-c", "-o", runtimeobj, runtimesrc).!
 		if (runtimeResult != 0) throw new LinkError("failed to build runtime library")
 
@@ -26,7 +26,7 @@ object Link {
 		println(binfile)
 		val linkResult = Seq("gcc", "-g", "-o", binfile, asmpath, runtimeobj).!
 		if (linkResult != 0) throw new LinkError("failed to link executable")
-  }
+	}
 }
 
 class LinkError(msg: String) extends CompilerError(msg)
